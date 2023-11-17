@@ -1,4 +1,5 @@
-from flask import Flask, render_template, send_from_directory, request, safe_join
+from flask import Flask, render_template, send_from_directory, request
+from werkzeug.utils import secure_filename
 from PIL import Image
 import os
 from pdf2image.pdf2image import convert_from_path
@@ -9,6 +10,7 @@ app = Flask(__name__)
 # Directory where PDFs are stored
 PDF_DIR = 'pdfs'
 os.makedirs(PDF_DIR, exist_ok=True)
+PDF_DIR = os.path.join(app.root_path, PDF_DIR)
 
 IMGS_DIR = 'app/static/imgs'
 os.makedirs(IMGS_DIR, exist_ok=True)
@@ -46,18 +48,22 @@ def index():
 def view_pdf():
     # Get the name of the PDF file from the query parameter 'name'
     pdf_name = request.args.get('name')
-    assert pdf_name is not None, "Failure retrieving name from request."
+    assert pdf_name is not None
 
-    # Create a safe path to the PDF file
-    pdf_path = safe_join(PDF_DIR, pdf_name)
+    # Ensure the filename is secure
+    pdf_name = secure_filename(pdf_name)
 
-    # Check if the path is valid and the file exists
+    # Create the full path to the PDF file
+    pdf_path = os.path.join(PDF_DIR, pdf_name)
+
+    # Check if the file exists
     if os.path.exists(pdf_path) and os.path.isfile(pdf_path):
-        # Serve the PDF file from the directory
+        # Serve the PDF file
         return send_from_directory(PDF_DIR, pdf_name, as_attachment=False)
     else:
-        # If the file does not exist, return a 404 error
+        # Return a 404 error if the file does not exist
         return "File not found.", 404
+
 
 if __name__ == '__main__':
     app.run(debug=True)
