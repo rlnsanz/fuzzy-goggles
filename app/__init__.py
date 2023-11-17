@@ -53,12 +53,12 @@ def view_pdf():
     pdf_name = secure_filename(pdf_name)
 
     # Create the full path to the PDF file
-    pdf_path = os.path.join(PDF_DIR, pdf_name)
+    pdf_path = os.path.join(app.root_path, PDF_DIR, pdf_name)
 
     # Check if the file exists
     if os.path.exists(pdf_path) and os.path.isfile(pdf_path):
         # Serve the PDF file
-        return send_from_directory(PDF_DIR, pdf_name, as_attachment=False)
+        return send_from_directory(os.path.dirname(pdf_path), pdf_name, as_attachment=False)
     else:
         # Return a 404 error if the file does not exist
         return "File not found.", 404
