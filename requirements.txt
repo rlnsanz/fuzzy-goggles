@@ -1,1 +1,1 @@
-# This file is intentionally left blank.
+Flask==3.0.0
