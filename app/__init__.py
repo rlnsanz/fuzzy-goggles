@@ -10,7 +10,6 @@ app = Flask(__name__)
 # Directory where PDFs are stored
 PDF_DIR = 'pdfs'
 os.makedirs(PDF_DIR, exist_ok=True)
-PDF_DIR = os.path.join(app.root_path, PDF_DIR)
 
 IMGS_DIR = 'app/static/imgs'
 os.makedirs(IMGS_DIR, exist_ok=True)
