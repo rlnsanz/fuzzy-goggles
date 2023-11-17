@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory, request
 from PIL import Image
 import os
 from pdf2image.pdf2image import convert_from_path
@@ -42,6 +42,11 @@ def index():
     # Render the template with the PDF previews
     return render_template('index.html', pdf_previews=pdf_previews)
 
+@app.route('/view-pdf')
+def view_pdf():
+    pdf_name = request.args.get('name')
+    assert pdf_name is not None, 'Failure retrieving PDF name from request'
+    return send_from_directory(PDF_DIR, pdf_name)
 
 if __name__ == '__main__':
     app.run(debug=True)
