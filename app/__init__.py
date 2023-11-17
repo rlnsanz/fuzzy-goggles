@@ -7,8 +7,8 @@ from pdf2image.pdf2image import convert_from_path
 
 app = Flask(__name__)
 
-# Directory where PDFs are stored
-PDF_DIR = 'pdfs'
+# Absolute path to the directory where PDFs are stored
+PDF_DIR = os.path.abspath('pdfs')
 os.makedirs(PDF_DIR, exist_ok=True)
 
 IMGS_DIR = 'app/static/imgs'
@@ -47,18 +47,19 @@ def index():
 def view_pdf():
     # Get the name of the PDF file from the query parameter 'name'
     pdf_name = request.args.get('name')
-    assert pdf_name is not None
+    if not pdf_name:
+        return "No file specified.", 400
 
     # Ensure the filename is secure
     pdf_name = secure_filename(pdf_name)
 
     # Create the full path to the PDF file
-    pdf_path = os.path.join(app.root_path, PDF_DIR, pdf_name)
+    pdf_path = os.path.join(PDF_DIR, pdf_name)
 
     # Check if the file exists
-    if os.path.exists(pdf_path) and os.path.isfile(pdf_path):
+    if os.path.isfile(pdf_path):
         # Serve the PDF file
-        return send_from_directory(os.path.dirname(pdf_path), pdf_name, as_attachment=False)
+        return send_from_directory(PDF_DIR, pdf_name, as_attachment=False)
     else:
         # Return a 404 error if the file does not exist
         return "File not found.", 404
