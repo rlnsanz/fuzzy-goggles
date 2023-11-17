@@ -19,7 +19,8 @@ def pdf_to_img(pdf_path):
     if images:
         image = images[0]
         # Save the image to a directory and return the path
-        image_path = os.path.join(IMGS_DIR, os.path.basename(pdf_path) + '.png')
+        new_name = os.path.basename(pdf_path).replace('.pdf', '.png')
+        image_path = os.path.join(IMGS_DIR, new_name)
         image.save(image_path, 'PNG')
         return image_path
 
@@ -27,14 +28,16 @@ def pdf_to_img(pdf_path):
 
 @app.route('/')
 def index():
-    # List all PDF files in the directory
     pdf_files = [f for f in os.listdir(PDF_DIR) if f.endswith('.pdf')]
 
-    # Convert each PDF's first page to an image and store the paths
-    pdf_previews = [(pdf, pdf_to_img(os.path.join(PDF_DIR, pdf))) for pdf in pdf_files]
+    # Convert each PDF's first page to an image, store only the basenames
+    image_path = [pdf_to_img(os.path.join(PDF_DIR, pdf)) for pdf in pdf_files]
+
+    pdf_previews = [(pdf, os.path.basename(imgp)) if imgp is not None else (pdf, None) for pdf,imgp in zip(pdf_files, image_path)]
 
     # Render the template with the PDF previews
     return render_template('index.html', pdf_previews=pdf_previews)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

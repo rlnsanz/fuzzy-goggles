@@ -13,7 +13,7 @@
         <div class="grid">
             {% for pdf, image_path in pdf_previews %}
             <div class="grid-item">
-                <img src="{{ url_for('static', filename=image_path) }}" alt="Preview of {{ pdf }}">
+                <img src="{{ url_for('static', filename='imgs/' + image_path) }}" alt="Preview of {{ pdf }}">
                 <p>{{ pdf }}</p>
             </div>
             {% endfor %}
