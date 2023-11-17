@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from PIL import Image
 import os
 from pdf2image.pdf2image import convert_from_path
 
@@ -12,17 +13,20 @@ os.makedirs(PDF_DIR, exist_ok=True)
 IMGS_DIR = 'app/static/imgs'
 os.makedirs(IMGS_DIR, exist_ok=True)
 
-def pdf_to_img(pdf_path):
+def pdf_to_img(pdf_path, size=(300, 400)):  # Define your desired size (width, height)
     # Convert the first page of the PDF to an image
     images = convert_from_path(pdf_path, first_page=1, last_page=1)
 
     if images:
         image = images[0]
+        # Resize the image to the desired size using the LANCZOS filter
+        image = image.resize(size, Image.Resampling.LANCZOS)
+        
         # Save the image to a directory and return the path
         new_name = os.path.basename(pdf_path).replace('.pdf', '.png')
         image_path = os.path.join(IMGS_DIR, new_name)
         image.save(image_path, 'PNG')
-        return image_path
+        return new_name  # Return only the basename
 
     return None  # Return None if conversion failed
 
