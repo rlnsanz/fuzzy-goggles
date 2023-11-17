@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>My Flask App</title>
+    <title>PDF Overview</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
-    <h1>Welcome to My Flask App!</h1>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <div class="container">
+        <h1>PDF Overview</h1>
+        <div class="grid">
+            {% for pdf, image_path in pdf_previews %}
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename=image_path) }}" alt="Preview of {{ pdf }}">
+                <p>{{ pdf }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </body>
+
 </html>

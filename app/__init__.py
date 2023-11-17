@@ -7,6 +7,10 @@ app = Flask(__name__)
 
 # Directory where PDFs are stored
 PDF_DIR = 'pdfs'
+os.makedirs(PDF_DIR, exist_ok=True)
+
+IMGS_DIR = 'app/static/imgs'
+os.makedirs(IMGS_DIR, exist_ok=True)
 
 def pdf_to_img(pdf_path):
     # Convert the first page of the PDF to an image
@@ -15,7 +19,7 @@ def pdf_to_img(pdf_path):
     if images:
         image = images[0]
         # Save the image to a directory and return the path
-        image_path = os.path.join('path/to/save/images', os.path.basename(pdf_path) + '.png')
+        image_path = os.path.join(IMGS_DIR, os.path.basename(pdf_path) + '.png')
         image.save(image_path, 'PNG')
         return image_path
 
