@@ -1,5 +1,4 @@
-app/static/pdfs/
-app/static/imgs/
+app/private/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
