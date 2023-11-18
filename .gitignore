@@ -1,4 +1,4 @@
-pdfs/
+app/static/pdfs/
 app/static/imgs/
 # Byte-compiled / optimized / DLL files
 __pycache__/

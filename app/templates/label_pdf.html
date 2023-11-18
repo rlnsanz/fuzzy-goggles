@@ -6,7 +6,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Label PDF</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.189/pdf_viewer.min.css">
     <style>
         /* Add any additional styles here */
         #pdf-container {
@@ -30,9 +29,9 @@
 
 <body>
     <div id="pdf-container"></div>
+    <script type="module">
+        import * as pdfjsLib from "{{ url_for('static', filename='js/pdf.mjs') }}";
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.189/pdf.min.mjs"></script>
-    <script>
         async function loadPdf() {
             const url = `{{ url_for('static', filename='pdfs/' + pdf_name) }}`;
             const loadingTask = pdfjsLib.getDocument(url);
@@ -42,7 +41,6 @@
                 const container = document.getElementById('pdf-container');
 
                 for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-                    // Render each page and add overlay
                     const page = await pdf.getPage(pageNum);
                     const scale = 1.5; // Adjust as needed
                     const viewport = page.getViewport({ scale: scale });
@@ -57,13 +55,11 @@
                     };
                     await page.render(renderContext).promise;
 
-                    // Append the canvas and overlay to the container
                     const overlay = document.createElement('div');
                     overlay.className = 'page-overlay';
                     overlay.style.height = `${viewport.height}px`;
                     overlay.style.width = `${viewport.width}px`;
                     overlay.onclick = function () {
-                        // Change overlay color on click (placeholder logic)
                         this.style.backgroundColor = 'rgba(0, 255, 0, 0.2)';
                     };
 
@@ -78,7 +74,9 @@
             }
         }
 
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.189/pdf.worker.min.js';
+        // Set the workerSrc property
+        pdfjsLib.GlobalWorkerOptions.workerSrc = "{{ url_for('static', filename='js/pdf.worker.mjs') }}";
+
         loadPdf();
     </script>
 </body>

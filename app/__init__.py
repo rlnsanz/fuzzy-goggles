@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_from_directory, request
+from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
 from PIL import Image
 import os
@@ -8,7 +8,7 @@ from pdf2image.pdf2image import convert_from_path
 app = Flask(__name__)
 
 # Absolute path to the directory where PDFs are stored
-PDF_DIR = os.path.abspath('pdfs')
+PDF_DIR = 'app/static/pdfs'
 os.makedirs(PDF_DIR, exist_ok=True)
 
 IMGS_DIR = 'app/static/imgs'
