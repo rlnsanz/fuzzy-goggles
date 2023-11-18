@@ -33,7 +33,7 @@
         import * as pdfjsLib from "{{ url_for('static', filename='js/pdf.mjs') }}";
 
         async function loadPdf() {
-            const url = `{{ url_for('private', filename='pdfs/' + pdf_name) }}`;
+            const url = `{{ url_for('static', filename='private/pdfs/' + pdf_name) }}`;
             const loadingTask = pdfjsLib.getDocument(url);
 
             try {
