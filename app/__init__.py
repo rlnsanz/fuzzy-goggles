@@ -45,24 +45,20 @@ def index():
 
 @app.route('/view-pdf')
 def view_pdf():
-    # Get the name of the PDF file from the query parameter 'name'
     pdf_name = request.args.get('name')
     if not pdf_name:
         return "No file specified.", 400
 
-    # Ensure the filename is secure
     pdf_name = secure_filename(pdf_name)
 
-    # Create the full path to the PDF file
     pdf_path = os.path.join(PDF_DIR, pdf_name)
 
-    # Check if the file exists
     if os.path.isfile(pdf_path):
-        # Serve the PDF file
-        return send_from_directory(PDF_DIR, pdf_name, as_attachment=False)
+        # Render the label_pdf.html template with the PDF name
+        return render_template('label_pdf.html', pdf_name=pdf_name)
     else:
-        # Return a 404 error if the file does not exist
         return "File not found.", 404
+
 
 
 if __name__ == '__main__':
