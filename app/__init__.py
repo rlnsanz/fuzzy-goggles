@@ -8,10 +8,10 @@ from pdf2image.pdf2image import convert_from_path
 app = Flask(__name__)
 
 # Absolute path to the directory where PDFs are stored
-PDF_DIR = 'app/static/pdfs'
+PDF_DIR = 'app/private/pdfs'
 os.makedirs(PDF_DIR, exist_ok=True)
 
-IMGS_DIR = 'app/static/imgs'
+IMGS_DIR = 'app/private/imgs'
 os.makedirs(IMGS_DIR, exist_ok=True)
 
 def pdf_to_img(pdf_path, size=(300, 400)):  # Define your desired size (width, height)
