@@ -20,3 +20,6 @@ clean:
 	@find . -type f -name '*.pyc' -delete
 	@find . -type d -name '__pycache__' -delete
 
+data_prep:
+	@echo "Preparing data..."
+	@cd app && python pdf2png.py
