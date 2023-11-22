@@ -4,11 +4,6 @@
 export FLASK_APP=run.py
 export FLASK_ENV=development
 
-# Run the Flask development server
-run:
-	@echo "Starting Flask development server..."
-	@flask run
-
 # Install dependencies from requirements.txt
 install:
 	@echo "Installing dependencies..."
@@ -31,3 +26,8 @@ infer: data_prep
 retrain: data_prep
 	@echo "Retraining..."
 	@cd app && python retrain.py
+
+# Run the Flask development server
+run: infer
+	@echo "Starting Flask development server..."
+	@flask run
