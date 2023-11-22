@@ -21,7 +21,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(255, 0, 0, 0.2);
+            background-color: rgba(118, 42, 131, 0.2);
             /* Initial overlay color */
         }
     </style>
@@ -32,6 +32,7 @@
     <script type="module">
         import * as pdfjsLib from "{{ url_for('static', filename='js/pdf.mjs') }}";
 
+        const color_wheel = ['rgba(118,42,131, 0.2)', 'rgba(175,141,195,0.2)', 'rgba(231,212,232,0.2)', 'rgba(217,240,211,0.2)', 'rgba(127,191,123,0.2)', 'rgba(27,120,55,0.2)']
         async function loadPdf() {
             const url = `{{ url_for('static', filename='private/pdfs/' + pdf_name) }}`;
             const loadingTask = pdfjsLib.getDocument(url);
@@ -59,9 +60,13 @@
                     overlay.className = 'page-overlay';
                     overlay.style.height = `${viewport.height}px`;
                     overlay.style.width = `${viewport.width}px`;
-                    overlay.onclick = function () {
-                        this.style.backgroundColor = 'rgba(0, 255, 0, 0.2)';
-                    };
+                    overlay.onclick = (function () {
+                        var i = 1;
+                        return function () {
+                            this.style.backgroundColor = color_wheel[i % color_wheel.length];
+                            i++;
+                        };
+                    })();
 
                     const wrapper = document.createElement('div');
                     wrapper.style.position = 'relative';
