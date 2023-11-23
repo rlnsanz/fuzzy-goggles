@@ -1,6 +1,8 @@
 import fitz
 import os
 
+from .app import PDF_DIR, IMGS_DIR
+
 
 def convert_pdf_to_images(pdf_folder, output_folder):
     # Iterate through each PDF in the folder
@@ -25,11 +27,14 @@ def convert_pdf_to_images(pdf_folder, output_folder):
             output_path = os.path.join(pdf_output_folder, f"page_{page_num}.png")
             pix.save(output_path)
 
+            if page_num == 0:
+                # Save the first page as the preview
+                preview_path = os.path.join(output_folder, f"{pdf_name}.png")
+                pix.save(preview_path)
+
         doc.close()
 
 
 if __name__ == "__main__":
-    pdf_folder = os.path.join("static", "private", "pdfs")
-    output_folder = os.path.join("static", "private", "imgs")
-    os.makedirs(output_folder, exist_ok=True)
-    convert_pdf_to_images(pdf_folder, output_folder)
+    os.makedirs(IMGS_DIR, exist_ok=True)
+    convert_pdf_to_images(PDF_DIR, IMGS_DIR)

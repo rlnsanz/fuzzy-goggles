@@ -17,15 +17,15 @@ clean:
 
 data_prep:
 	@echo "Preparing data..."
-	@cd app && python pdf2png.py
+	@python pdf2png.py
 
 infer: data_prep
 	@echo "Inferencing..."
-	@cd app && python infer.py
+	@python infer.py
 
 retrain: data_prep
 	@echo "Retraining..."
-	@cd app && python retrain.py
+	@python retrain.py
 
 # Run the Flask development server
 run: infer
