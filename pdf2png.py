@@ -1,7 +1,7 @@
 import fitz
 import os
 
-from .app import PDF_DIR, IMGS_DIR
+from app import PDF_DIR, IMGS_DIR
 
 
 def convert_pdf_to_images(pdf_folder, output_folder):
