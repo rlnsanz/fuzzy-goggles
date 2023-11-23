@@ -27,18 +27,19 @@ def resize_image(image_path, size=(300, 400)):
 def index():
     pdf_files = [f for f in os.listdir(PDF_DIR) if f.endswith(".pdf")]
 
-    # Resize each image
+    # Resize each image and create a list of tuples (pdf, image_path)
+    pdf_previews = []
     for pdf in pdf_files:
         image_name = pdf.replace(".pdf", ".png")
         image_path = os.path.join(IMGS_DIR, image_name)
         if os.path.exists(image_path):
             resize_image(image_path)
-
-    # Get the list of all image files for rendering
-    img_files = [f for f in os.listdir(IMGS_DIR) if f.endswith(".png")]
+            # Only include the part of the image_path that comes after 'app/static/private/imgs'
+            relative_image_path = os.path.relpath(image_path, start="app/static")
+            pdf_previews.append((pdf, relative_image_path))
 
     # Render the template with the PDF previews
-    return render_template("index.html", pdf_previews=img_files)
+    return render_template("index.html", pdf_previews=pdf_previews)
 
 
 @app.route("/view-pdf")
