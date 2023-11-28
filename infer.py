@@ -29,9 +29,8 @@ if __name__ == "__main__":
             full_path = get_full_path(IMGS_DIR, file)
             if not is_directory(full_path):
                 continue
-            flor.log("document", file)
             for i, file2 in flor.loop(
                 "pages", enumerate(list_files_in_directory(full_path, key=parse_page))
             ):
-                flor.log("page", parse_page(file2))
+                flor.log("pagepath", os.path.join(full_path, file2))
                 flor.log("first_page", 1 if i == 0 else 0)
