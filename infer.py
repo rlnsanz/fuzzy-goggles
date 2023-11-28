@@ -20,7 +20,7 @@ def is_directory(path):
 
 
 def get_full_path(directory, file):
-    return os.path.join(directory, file)
+    return os.path.join(os.path.abspath(directory), file)
 
 
 if __name__ == "__main__":
