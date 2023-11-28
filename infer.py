@@ -32,5 +32,5 @@ if __name__ == "__main__":
             for i, file2 in flor.loop(
                 "pages", enumerate(list_files_in_directory(full_path, key=parse_page))
             ):
-                flor.log("pagepath", os.path.join(full_path, file2))
+                flor.log("page_path", os.path.join(full_path, file2))
                 flor.log("first_page", 1 if i == 0 else 0)
