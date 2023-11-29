@@ -1,7 +1,7 @@
 import os
 from app import IMGS_DIR
 import flor
-
+import torch
 
 def parse_page(filename):
     fn, _ = os.path.splitext(filename)
@@ -24,6 +24,7 @@ def get_full_path(directory, file):
 
 
 if __name__ == "__main__":
+    model = torch.load("model.pth") if os.path.exists("model.pth") else None
     if os.path.exists(IMGS_DIR):
         for file in flor.loop("docs", list_files_in_directory(IMGS_DIR)):
             full_path = get_full_path(IMGS_DIR, file)
@@ -33,4 +34,9 @@ if __name__ == "__main__":
                 "pages", enumerate(list_files_in_directory(full_path, key=parse_page))
             ):
                 flor.log("page_path", os.path.join(full_path, file2))
-                flor.log("first_page", 1 if i == 0 else 0)
+                if model:
+                    print("Predicting...")
+                    flor.log("first_page", 1 if model.predict(full_path, file2) else 0)
+                else:
+                    print("Defaulting...")
+                    flor.log("first_page", 1 if i == 0 else 0)
