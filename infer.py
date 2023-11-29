@@ -2,6 +2,8 @@ import os
 from app import IMGS_DIR
 import flor
 import torch
+from PIL import Image
+
 
 def parse_page(filename):
     fn, _ = os.path.splitext(filename)
@@ -24,7 +26,7 @@ def get_full_path(directory, file):
 
 
 if __name__ == "__main__":
-    from train import model, device
+    from train import model, device, transform
     if os.path.exists("model.pth"):
         state_dict = torch.load("model.pth", map_location=device)
         model.load_state_dict(state_dict)
@@ -39,10 +41,18 @@ if __name__ == "__main__":
             for i, file2 in flor.loop(
                 "pages", enumerate(list_files_in_directory(full_path, key=parse_page))
             ):
-                flor.log("page_path", os.path.join(full_path, file2))
+                image_path = os.path.join(full_path, file2)
+                flor.log("page_path", image_path)
                 if model:
                     print("Predicting...")
-                    flor.log("first_page", 1 if model.predict(full_path, file2) else 0)
+                    image = Image.open(image_path)
+                    input_tensor = transform(image).unsqueeze(0).to(device)
+                    with torch.no_grad():
+                        output = model(input_tensor)
+                        _, predicted = torch.max(output.data, 1)
+                        predicted_label = predicted.item()
+                        print(predicted_label)
+                    flor.log("first_page", 1 if i == 0 else int(predicted_label))
                 else:
                     print("Defaulting...")
                     flor.log("first_page", 1 if i == 0 else 0)

@@ -52,6 +52,16 @@ device = flor.arg("device", "mps" if torch.backends.mps.is_available() else ("cu
 device = torch.device(device)
 model = model.to(device)
     
+# Define your transformations
+transform = transforms.Compose(
+    [
+        transforms.Resize(256),
+        transforms.RandomCrop(224),
+        transforms.ToTensor(),
+        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
+    ]
+)
+
 if __name__ == "__main__":
 
     training_data = flor.pivot("page_path", "first_page")
@@ -64,15 +74,7 @@ if __name__ == "__main__":
     train_data, val_data = train_test_split(training_data, test_size=test_size)
     print(val_data.head(n=len(val_data)))
 
-    # Define your transformations
-    transform = transforms.Compose(
-        [
-            transforms.Resize(256),
-            transforms.RandomCrop(224),
-            transforms.ToTensor(),
-            transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
-        ]
-    )
+
 
     train_dataset = PDFPagesDataset(dataframe=train_data, transform=transform)
     val_dataset = PDFPagesDataset(dataframe=val_data, transform=transform)
