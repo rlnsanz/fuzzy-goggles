@@ -32,6 +32,7 @@ class PDFPagesDataset(Dataset):
             transform (callable, optional): Optional transform to be applied on a sample.
         """
         self.dataframe = dataframe
+        self.columns = [each for each in dataframe.columns.values]
         self.transform = transform
 
     def __len__(self):
@@ -39,11 +40,11 @@ class PDFPagesDataset(Dataset):
 
     def __getitem__(self, idx):
         img_name = self.dataframe.iloc[
-            idx, self.dataframe.columns.values.index("page_path")
+            idx, self.columns.index("page_path")
         ]  # adjust column index based on your DataFrame structure
         image = Image.open(img_name)
         label = int(
-            self.dataframe.iloc[idx, self.dataframe.columns.values.index("first_page")]
+            self.dataframe.iloc[idx, self.columns.index("first_page")]
         )  # adjust column index for labels
 
         if self.transform:
