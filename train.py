@@ -94,7 +94,7 @@ if __name__ == "__main__":
     # Loss function and optimizer
     w = torch.tensor([1.0, 10.0]).to(device)
     criterion = nn.CrossEntropyLoss(weight=w)
-    optimizer = optim.Adam(model.parameters(), lr=flor.arg("lr", 0.001))
+    optimizer = optim.Adam(model.fc.parameters(), lr=flor.arg("lr", 0.001))
     exp_lr_scheduler = lr_scheduler.StepLR(
         optimizer, step_size=flor.arg("lr_step_size", 7), gamma=flor.arg("lr_gamma", 0.1)
     )
