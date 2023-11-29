@@ -24,7 +24,11 @@ def get_full_path(directory, file):
 
 
 if __name__ == "__main__":
-    model = torch.load("model.pth") if os.path.exists("model.pth") else None
+    from train import device
+    model = torch.load("model.pth", map_location=device) if os.path.exists("model.pth") else None
+    if model:
+        print("Model loaded")
+        print(model.device)
     if os.path.exists(IMGS_DIR):
         for file in flor.loop("docs", list_files_in_directory(IMGS_DIR)):
             full_path = get_full_path(IMGS_DIR, file)

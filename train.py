@@ -79,7 +79,7 @@ num_ftrs = model.fc.in_features
 model.fc = torch.nn.Linear(num_ftrs, 2)
 
 # Move the model to GPU if available
-device = flor.arg("device", "cuda:0" if torch.cuda.is_available() else "cpu")
+device = flor.arg("device", "mps" if torch.backends.mps.is_available() else ("cuda" if torch.cuda.is_available() else "cpu"))
 device = torch.device(device)
 model = model.to(device)
 
