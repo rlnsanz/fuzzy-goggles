@@ -39,11 +39,11 @@ class PDFPagesDataset(Dataset):
 
     def __getitem__(self, idx):
         img_name = self.dataframe.iloc[
-            idx, self.dataframe.columns.index("page_path")
+            idx, self.dataframe.columns.values.index("page_path")
         ]  # adjust column index based on your DataFrame structure
         image = Image.open(img_name)
         label = int(
-            self.dataframe.iloc[idx, self.dataframe.columns.index("first_page")]
+            self.dataframe.iloc[idx, self.dataframe.columns.values.index("first_page")]
         )  # adjust column index for labels
 
         if self.transform:
