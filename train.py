@@ -11,6 +11,8 @@ from PIL import Image
 import pandas as pd
 from torchvision import transforms, models
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import recall_score
+
 
 class PDFPagesDataset(Dataset):
     def __init__(self, dataframe, transform=None):
@@ -111,6 +113,8 @@ if __name__ == "__main__":
             model.train()
             running_loss = 0.0
             running_corrects = 0
+            all_labels = []
+            all_preds = []
             for inputs, labels in flor.loop("steps", train_loader):
                 inputs = inputs.to(device)
                 labels = labels.to(device)
@@ -131,15 +135,23 @@ if __name__ == "__main__":
                 running_loss += loss.item() * inputs.size(0)
                 running_corrects += torch.sum(preds == labels.data)
 
+                all_labels.extend(labels.cpu().numpy())
+                all_preds.extend(preds.cpu().numpy())
+
+
             epoch_loss = running_loss / len(train_dataset)
             flor.log("train_loss", float(epoch_loss))
             epoch_acc = running_corrects.float() / len(train_dataset)  # type: ignore
             flor.log("train_acc", float(epoch_acc))
+            train_recall = recall_score(all_labels, all_preds)
+            flor.log("train_recall", float(train_recall))
 
             # do validate
             model.eval()
             running_loss = 0.0
             running_corrects = 0
+            all_labels = []
+            all_preds = []
 
             # Iterate over data.
             for inputs, labels in val_loader:
@@ -158,10 +170,17 @@ if __name__ == "__main__":
                 # Statistics
                 running_loss += loss.item() * inputs.size(0)
                 running_corrects += torch.sum(preds == labels.data)
+                all_labels.extend(labels.cpu().numpy())
+                all_preds.extend(preds.cpu().numpy())
+
 
             epoch_loss = running_loss / len(val_dataset)
             flor.log("val_loss", float(epoch_loss))
             epoch_acc = running_corrects.float() / len(val_dataset)  # type: ignore
             flor.log("val_acc", float(epoch_acc))
-        
+
+            # Calculate recall at the end of the epoch
+            val_recall = recall_score(all_labels, all_preds)
+            flor.log("val_recall", float(val_recall))
+
             exp_lr_scheduler.step()
