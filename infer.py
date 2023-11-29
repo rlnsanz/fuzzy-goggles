@@ -25,7 +25,6 @@ def get_full_path(directory, file):
 
 if __name__ == "__main__":
     from train import model, device
-    model = None
     if os.path.exists("model.pth"):
         state_dict = torch.load("model.pth", map_location=device)
         model.load_state_dict(state_dict)
