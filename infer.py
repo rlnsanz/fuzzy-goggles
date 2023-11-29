@@ -24,12 +24,14 @@ def get_full_path(directory, file):
 
 
 if __name__ == "__main__":
-    device = flor.arg("device", "mps" if torch.backends.mps.is_available() else ("cuda" if torch.cuda.is_available() else "cpu"))
-    device = torch.device(device)
-    model = torch.load("model.pth", map_location=device) if os.path.exists("model.pth") else None
-    if model:
+    from train import model, device
+    model = None
+    if os.path.exists("model.pth"):
+        state_dict = torch.load("model.pth", map_location=device)
+        model.load_state_dict(state_dict)
+        model = model.to(device)
+        model.eval()
         print("Model loaded")
-        print(model.device)
     if os.path.exists(IMGS_DIR):
         for file in flor.loop("docs", list_files_in_directory(IMGS_DIR)):
             full_path = get_full_path(IMGS_DIR, file)
