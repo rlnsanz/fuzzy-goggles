@@ -55,8 +55,9 @@ model = model.to(device)
 # Freeze early layers of the model
 for param in model.parameters():
     param.requires_grad = False
-model.fc.requires_grad = True
 
+for param in model.fc.parameters():
+    param.requires_grad = True
     
 # Define your transformations
 transform = transforms.Compose(
@@ -93,7 +94,7 @@ if __name__ == "__main__":
     # Loss function and optimizer
     w = torch.tensor([1.0, 10.0]).to(device)
     criterion = nn.CrossEntropyLoss(weight=w)
-    optimizer = optim.Adam(model.fc.parameters(), lr=flor.arg("lr", 0.001))
+    optimizer = optim.Adam(model.parameters(), lr=flor.arg("lr", 0.001))
     exp_lr_scheduler = lr_scheduler.StepLR(
         optimizer, step_size=flor.arg("lr_step_size", 7), gamma=flor.arg("lr_gamma", 0.1)
     )
@@ -129,11 +130,10 @@ if __name__ == "__main__":
                 # Statistics
                 running_loss += loss.item() * inputs.size(0)
                 running_corrects += torch.sum(preds == labels.data)
-                exp_lr_scheduler.step()
 
             epoch_loss = running_loss / len(train_dataset)
             flor.log("train_loss", float(epoch_loss))
-            epoch_acc = running_corrects.double() / len(train_dataset)  # type: ignore
+            epoch_acc = running_corrects.float() / len(train_dataset)  # type: ignore
             flor.log("train_acc", float(epoch_acc))
 
             # do validate
@@ -161,5 +161,7 @@ if __name__ == "__main__":
 
             epoch_loss = running_loss / len(val_dataset)
             flor.log("val_loss", float(epoch_loss))
-            epoch_acc = running_corrects.double() / len(val_dataset)  # type: ignore
+            epoch_acc = running_corrects.float() / len(val_dataset)  # type: ignore
             flor.log("val_acc", float(epoch_acc))
+        
+            exp_lr_scheduler.step()

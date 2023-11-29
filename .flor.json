@@ -29,16 +29,890 @@
   },
   {
     "value_name": "enter::epochs",
-    "value": "2023-11-29T16:51:06"
+    "value": "2023-11-29T17:13:55"
   },
   {
     "epochs": 1,
     "value_name": "enter::steps",
-    "value": "2023-11-29T16:51:06"
+    "value": "2023-11-29T17:13:55"
+  },
+  {
+    "epochs": 1,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:13:56"
+  },
+  {
+    "epochs": 1,
+    "value_name": "train_loss",
+    "value": 0.7713166369746128
+  },
+  {
+    "epochs": 1,
+    "value_name": "train_acc",
+    "value": 0.7291666865348816
+  },
+  {
+    "epochs": 1,
+    "value_name": "val_loss",
+    "value": 0.07940457761287689
+  },
+  {
+    "epochs": 1,
+    "value_name": "val_acc",
+    "value": 1.0
+  },
+  {
+    "epochs": 1,
+    "value_name": "auto::secs",
+    "value": 0.9836880830002883
+  },
+  {
+    "epochs": 2,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:13:56"
+  },
+  {
+    "epochs": 2,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:13:57"
+  },
+  {
+    "epochs": 2,
+    "value_name": "train_loss",
+    "value": 0.9697566293179989
+  },
+  {
+    "epochs": 2,
+    "value_name": "train_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 2,
+    "value_name": "val_loss",
+    "value": 0.4780645966529846
+  },
+  {
+    "epochs": 2,
+    "value_name": "val_acc",
+    "value": 0.75
+  },
+  {
+    "epochs": 2,
+    "value_name": "auto::secs",
+    "value": 0.8113504999996621
+  },
+  {
+    "epochs": 3,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:13:57"
+  },
+  {
+    "epochs": 3,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:13:58"
+  },
+  {
+    "epochs": 3,
+    "value_name": "train_loss",
+    "value": 0.5637853691975275
+  },
+  {
+    "epochs": 3,
+    "value_name": "train_acc",
+    "value": 0.8958333134651184
+  },
+  {
+    "epochs": 3,
+    "value_name": "val_loss",
+    "value": 0.23853057126204172
+  },
+  {
+    "epochs": 3,
+    "value_name": "val_acc",
+    "value": 1.0
+  },
+  {
+    "epochs": 3,
+    "value_name": "auto::secs",
+    "value": 0.7894141660003697
+  },
+  {
+    "epochs": 4,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:13:58"
+  },
+  {
+    "epochs": 4,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:13:59"
+  },
+  {
+    "epochs": 4,
+    "value_name": "train_loss",
+    "value": 0.5361656298240026
+  },
+  {
+    "epochs": 4,
+    "value_name": "train_acc",
+    "value": 0.8958333134651184
+  },
+  {
+    "epochs": 4,
+    "value_name": "val_loss",
+    "value": 0.24032257994016012
+  },
+  {
+    "epochs": 4,
+    "value_name": "val_acc",
+    "value": 1.0
+  },
+  {
+    "epochs": 4,
+    "value_name": "auto::secs",
+    "value": 0.7762985419999495
+  },
+  {
+    "epochs": 5,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:13:59"
+  },
+  {
+    "epochs": 5,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:00"
+  },
+  {
+    "epochs": 5,
+    "value_name": "train_loss",
+    "value": 0.647052014246583
+  },
+  {
+    "epochs": 5,
+    "value_name": "train_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 5,
+    "value_name": "val_loss",
+    "value": 0.10104550669590633
+  },
+  {
+    "epochs": 5,
+    "value_name": "val_acc",
+    "value": 1.0
+  },
+  {
+    "epochs": 5,
+    "value_name": "auto::secs",
+    "value": 0.7830395000000863
+  },
+  {
+    "epochs": 6,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:14:00"
+  },
+  {
+    "epochs": 6,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:01"
+  },
+  {
+    "epochs": 6,
+    "value_name": "train_loss",
+    "value": 0.48657532781362534
+  },
+  {
+    "epochs": 6,
+    "value_name": "train_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 6,
+    "value_name": "val_loss",
+    "value": 0.393147091070811
+  },
+  {
+    "epochs": 6,
+    "value_name": "val_acc",
+    "value": 0.8333333134651184
+  },
+  {
+    "epochs": 6,
+    "value_name": "auto::secs",
+    "value": 0.7889047500002562
+  },
+  {
+    "epochs": 7,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:14:01"
+  },
+  {
+    "epochs": 7,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:02"
+  },
+  {
+    "epochs": 7,
+    "value_name": "train_loss",
+    "value": 0.6087851412594318
+  },
+  {
+    "epochs": 7,
+    "value_name": "train_acc",
+    "value": 0.8541666865348816
+  },
+  {
+    "epochs": 7,
+    "value_name": "val_loss",
+    "value": 0.17569378515084585
+  },
+  {
+    "epochs": 7,
+    "value_name": "val_acc",
+    "value": 1.0
+  },
+  {
+    "epochs": 7,
+    "value_name": "auto::secs",
+    "value": 0.7722849580000002
+  },
+  {
+    "epochs": 8,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:14:02"
+  },
+  {
+    "epochs": 8,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:03"
+  },
+  {
+    "epochs": 8,
+    "value_name": "train_loss",
+    "value": 0.5493167601525784
+  },
+  {
+    "epochs": 8,
+    "value_name": "train_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 8,
+    "value_name": "val_loss",
+    "value": 0.2502691646416982
+  },
+  {
+    "epochs": 8,
+    "value_name": "val_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 8,
+    "value_name": "auto::secs",
+    "value": 0.7945085840001411
+  },
+  {
+    "epochs": 9,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:14:03"
+  },
+  {
+    "epochs": 9,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:03"
+  },
+  {
+    "epochs": 9,
+    "value_name": "train_loss",
+    "value": 0.42755894114573795
+  },
+  {
+    "epochs": 9,
+    "value_name": "train_acc",
+    "value": 0.8958333134651184
+  },
+  {
+    "epochs": 9,
+    "value_name": "val_loss",
+    "value": 0.24784584840138754
+  },
+  {
+    "epochs": 9,
+    "value_name": "val_acc",
+    "value": 1.0
+  },
+  {
+    "epochs": 9,
+    "value_name": "auto::secs",
+    "value": 0.8033164579996992
+  },
+  {
+    "epochs": 10,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:14:04"
+  },
+  {
+    "epochs": 10,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:04"
+  },
+  {
+    "epochs": 10,
+    "value_name": "train_loss",
+    "value": 0.4844372731943925
+  },
+  {
+    "epochs": 10,
+    "value_name": "train_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 10,
+    "value_name": "val_loss",
+    "value": 0.22091241677602133
+  },
+  {
+    "epochs": 10,
+    "value_name": "val_acc",
+    "value": 1.0
+  },
+  {
+    "epochs": 10,
+    "value_name": "auto::secs",
+    "value": 0.7685573329999897
+  },
+  {
+    "epochs": 11,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:14:05"
+  },
+  {
+    "epochs": 11,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:05"
+  },
+  {
+    "epochs": 11,
+    "value_name": "train_loss",
+    "value": 0.49935803189873695
+  },
+  {
+    "epochs": 11,
+    "value_name": "train_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 11,
+    "value_name": "val_loss",
+    "value": 0.3178936392068863
+  },
+  {
+    "epochs": 11,
+    "value_name": "val_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 11,
+    "value_name": "auto::secs",
+    "value": 0.8062972090001495
+  },
+  {
+    "epochs": 12,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:14:06"
+  },
+  {
+    "epochs": 12,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:06"
+  },
+  {
+    "epochs": 12,
+    "value_name": "train_loss",
+    "value": 0.45276427641510963
+  },
+  {
+    "epochs": 12,
+    "value_name": "train_acc",
+    "value": 0.9375
+  },
+  {
+    "epochs": 12,
+    "value_name": "val_loss",
+    "value": 0.24273601671059927
+  },
+  {
+    "epochs": 12,
+    "value_name": "val_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 12,
+    "value_name": "auto::secs",
+    "value": 0.7805062919996999
+  },
+  {
+    "epochs": 13,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:14:06"
+  },
+  {
+    "epochs": 13,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:07"
+  },
+  {
+    "epochs": 13,
+    "value_name": "train_loss",
+    "value": 0.4850242994725704
+  },
+  {
+    "epochs": 13,
+    "value_name": "train_acc",
+    "value": 0.9375
+  },
+  {
+    "epochs": 13,
+    "value_name": "val_loss",
+    "value": 0.24919178088506064
+  },
+  {
+    "epochs": 13,
+    "value_name": "val_acc",
+    "value": 1.0
+  },
+  {
+    "epochs": 13,
+    "value_name": "auto::secs",
+    "value": 0.7874647499997991
+  },
+  {
+    "epochs": 14,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:14:07"
+  },
+  {
+    "epochs": 14,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:08"
+  },
+  {
+    "epochs": 14,
+    "value_name": "train_loss",
+    "value": 0.4510081224143505
+  },
+  {
+    "epochs": 14,
+    "value_name": "train_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 14,
+    "value_name": "val_loss",
+    "value": 0.24912999073664346
+  },
+  {
+    "epochs": 14,
+    "value_name": "val_acc",
+    "value": 1.0
+  },
+  {
+    "epochs": 14,
+    "value_name": "auto::secs",
+    "value": 0.8068629159997727
+  },
+  {
+    "epochs": 15,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:14:08"
+  },
+  {
+    "epochs": 15,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:09"
+  },
+  {
+    "epochs": 15,
+    "value_name": "train_loss",
+    "value": 0.45077572266260785
+  },
+  {
+    "epochs": 15,
+    "value_name": "train_acc",
+    "value": 0.9375
+  },
+  {
+    "epochs": 15,
+    "value_name": "val_loss",
+    "value": 0.28216637670993805
+  },
+  {
+    "epochs": 15,
+    "value_name": "val_acc",
+    "value": 1.0
+  },
+  {
+    "epochs": 15,
+    "value_name": "auto::secs",
+    "value": 0.8095081249998657
+  },
+  {
+    "epochs": 16,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:14:09"
+  },
+  {
+    "epochs": 16,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:10"
+  },
+  {
+    "epochs": 16,
+    "value_name": "train_loss",
+    "value": 0.4292795459429423
+  },
+  {
+    "epochs": 16,
+    "value_name": "train_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 16,
+    "value_name": "val_loss",
+    "value": 0.2578663279612859
+  },
+  {
+    "epochs": 16,
+    "value_name": "val_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 16,
+    "value_name": "auto::secs",
+    "value": 0.7844217080000817
+  },
+  {
+    "epochs": 17,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:14:10"
+  },
+  {
+    "epochs": 17,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:11"
+  },
+  {
+    "epochs": 17,
+    "value_name": "train_loss",
+    "value": 0.5421826293071111
+  },
+  {
+    "epochs": 17,
+    "value_name": "train_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 17,
+    "value_name": "val_loss",
+    "value": 0.20205501715342203
+  },
+  {
+    "epochs": 17,
+    "value_name": "val_acc",
+    "value": 1.0
+  },
+  {
+    "epochs": 17,
+    "value_name": "auto::secs",
+    "value": 0.8031314170002588
+  },
+  {
+    "epochs": 18,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:14:11"
+  },
+  {
+    "epochs": 18,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:12"
+  },
+  {
+    "epochs": 18,
+    "value_name": "train_loss",
+    "value": 0.5403606630861759
+  },
+  {
+    "epochs": 18,
+    "value_name": "train_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 18,
+    "value_name": "val_loss",
+    "value": 0.23397405445575714
+  },
+  {
+    "epochs": 18,
+    "value_name": "val_acc",
+    "value": 1.0
+  },
+  {
+    "epochs": 18,
+    "value_name": "auto::secs",
+    "value": 0.7804535829995984
+  },
+  {
+    "epochs": 19,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:14:12"
+  },
+  {
+    "epochs": 19,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:13"
+  },
+  {
+    "epochs": 19,
+    "value_name": "train_loss",
+    "value": 0.4322076278428237
+  },
+  {
+    "epochs": 19,
+    "value_name": "train_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 19,
+    "value_name": "val_loss",
+    "value": 0.32416558265686035
+  },
+  {
+    "epochs": 19,
+    "value_name": "val_acc",
+    "value": 1.0
+  },
+  {
+    "epochs": 19,
+    "value_name": "auto::secs",
+    "value": 0.7895718340000712
+  },
+  {
+    "epochs": 20,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:14:13"
+  },
+  {
+    "epochs": 20,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:14"
+  },
+  {
+    "epochs": 20,
+    "value_name": "train_loss",
+    "value": 0.46943510075410205
+  },
+  {
+    "epochs": 20,
+    "value_name": "train_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 20,
+    "value_name": "val_loss",
+    "value": 0.3132084508736928
+  },
+  {
+    "epochs": 20,
+    "value_name": "val_acc",
+    "value": 1.0
+  },
+  {
+    "epochs": 20,
+    "value_name": "auto::secs",
+    "value": 0.7975735410000198
+  },
+  {
+    "epochs": 21,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:14:14"
+  },
+  {
+    "epochs": 21,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:14"
+  },
+  {
+    "epochs": 21,
+    "value_name": "train_loss",
+    "value": 0.4668757865826289
+  },
+  {
+    "epochs": 21,
+    "value_name": "train_acc",
+    "value": 0.8958333134651184
+  },
+  {
+    "epochs": 21,
+    "value_name": "val_loss",
+    "value": 0.26224351425965625
+  },
+  {
+    "epochs": 21,
+    "value_name": "val_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 21,
+    "value_name": "auto::secs",
+    "value": 0.7888773330000731
+  },
+  {
+    "epochs": 22,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:14:15"
+  },
+  {
+    "epochs": 22,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:15"
+  },
+  {
+    "epochs": 22,
+    "value_name": "train_loss",
+    "value": 0.38751642405986786
+  },
+  {
+    "epochs": 22,
+    "value_name": "train_acc",
+    "value": 0.8958333134651184
+  },
+  {
+    "epochs": 22,
+    "value_name": "val_loss",
+    "value": 0.2503179957469304
+  },
+  {
+    "epochs": 22,
+    "value_name": "val_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 22,
+    "value_name": "auto::secs",
+    "value": 0.7953730840004027
+  },
+  {
+    "epochs": 23,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:14:16"
+  },
+  {
+    "epochs": 23,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:16"
+  },
+  {
+    "epochs": 23,
+    "value_name": "train_loss",
+    "value": 0.5259771098693212
+  },
+  {
+    "epochs": 23,
+    "value_name": "train_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 23,
+    "value_name": "val_loss",
+    "value": 0.25410612920920056
+  },
+  {
+    "epochs": 23,
+    "value_name": "val_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 23,
+    "value_name": "auto::secs",
+    "value": 0.76200129200015
+  },
+  {
+    "epochs": 24,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:14:17"
+  },
+  {
+    "epochs": 24,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:17"
+  },
+  {
+    "epochs": 24,
+    "value_name": "train_loss",
+    "value": 0.5099350623786449
+  },
+  {
+    "epochs": 24,
+    "value_name": "train_acc",
+    "value": 0.9166666865348816
+  },
+  {
+    "epochs": 24,
+    "value_name": "val_loss",
+    "value": 0.20471214254697165
+  },
+  {
+    "epochs": 24,
+    "value_name": "val_acc",
+    "value": 1.0
+  },
+  {
+    "epochs": 24,
+    "value_name": "auto::secs",
+    "value": 0.7926247919999696
+  },
+  {
+    "epochs": 25,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T17:14:17"
+  },
+  {
+    "epochs": 25,
+    "value_name": "exit::steps",
+    "value": "2023-11-29T17:14:18"
+  },
+  {
+    "epochs": 25,
+    "value_name": "train_loss",
+    "value": 0.4807868351538976
+  },
+  {
+    "epochs": 25,
+    "value_name": "train_acc",
+    "value": 0.9375
+  },
+  {
+    "epochs": 25,
+    "value_name": "val_loss",
+    "value": 0.2653673638900121
+  },
+  {
+    "epochs": 25,
+    "value_name": "val_acc",
+    "value": 1.0
+  },
+  {
+    "epochs": 25,
+    "value_name": "auto::secs",
+    "value": 0.7761752910000723
+  },
+  {
+    "value_name": "exit::epochs",
+    "value": "2023-11-29T17:14:18"
   },
   {
     "PROJID": "fuzzy-goggles",
-    "TSTAMP": "2023-11-29T16:51:04",
+    "TSTAMP": "2023-11-29T17:13:54",
     "FILENAME": "train.py"
   }
 ]
