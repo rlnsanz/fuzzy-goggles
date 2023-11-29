@@ -8,8 +8,41 @@
     "value": 4
   },
   {
+    "value_name": "device",
+    "value": "cuda:0"
+  },
+  {
+    "value_name": "lr",
+    "value": 0.001
+  },
+  {
+    "value_name": "momentum",
+    "value": 0.9
+  },
+  {
+    "value_name": "lr_step_size",
+    "value": 7
+  },
+  {
+    "value_name": "lr_gamma",
+    "value": 0.1
+  },
+  {
+    "value_name": "num_epochs",
+    "value": 25
+  },
+  {
+    "value_name": "enter::epochs",
+    "value": "2023-11-29T12:30:07"
+  },
+  {
+    "epochs": 1,
+    "value_name": "enter::steps",
+    "value": "2023-11-29T12:30:07"
+  },
+  {
     "PROJID": "fuzzy-goggles",
-    "TSTAMP": "2023-11-29T11:46:33",
+    "TSTAMP": "2023-11-29T12:30:03",
     "FILENAME": "train.py"
   }
 ]
