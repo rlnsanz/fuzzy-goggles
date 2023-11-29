@@ -51,6 +51,12 @@ model.fc = torch.nn.Linear(num_ftrs, 2)
 device = flor.arg("device", "mps" if torch.backends.mps.is_available() else ("cuda" if torch.cuda.is_available() else "cpu"))
 device = torch.device(device)
 model = model.to(device)
+
+# Freeze early layers of the model
+for param in model.parameters():
+    param.requires_grad = False
+model.fc.requires_grad = True
+
     
 # Define your transformations
 transform = transforms.Compose(
@@ -85,10 +91,9 @@ if __name__ == "__main__":
     val_loader = DataLoader(val_dataset, batch_size=batch_size)
 
     # Loss function and optimizer
-    criterion = nn.CrossEntropyLoss()
-    optimizer = optim.SGD(
-        model.parameters(), lr=flor.arg("lr", 0.001), momentum=flor.arg("momentum", 0.9)
-    )
+    w = torch.tensor([1.0, 10.0]).to(device)
+    criterion = nn.CrossEntropyLoss(weight=w)
+    optimizer = optim.Adam(model.fc.parameters(), lr=flor.arg("lr", 0.001))
     exp_lr_scheduler = lr_scheduler.StepLR(
         optimizer, step_size=flor.arg("lr_step_size", 7), gamma=flor.arg("lr_gamma", 0.1)
     )
@@ -113,14 +118,13 @@ if __name__ == "__main__":
                 optimizer.zero_grad()
 
                 # Forward
-                with torch.set_grad_enabled(True):
-                    outputs = model(inputs)
-                    _, preds = torch.max(outputs, 1)
-                    loss = criterion(outputs, labels)
+                outputs = model(inputs)
+                _, preds = torch.max(outputs, 1)
+                loss = criterion(outputs, labels)
 
-                    # Backward + optimize
-                    loss.backward()
-                    optimizer.step()
+                # Backward + optimize
+                loss.backward()
+                optimizer.step()
 
                 # Statistics
                 running_loss += loss.item() * inputs.size(0)
@@ -146,7 +150,7 @@ if __name__ == "__main__":
                 optimizer.zero_grad()
 
                 # Forward
-                with torch.set_grad_enabled(False):
+                with torch.no_grad():
                     outputs = model(inputs)
                     _, preds = torch.max(outputs, 1)
                     loss = criterion(outputs, labels)
